@@ -1,38 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(1.5px + 1.5vmin);
   color: white;
+  box-shadow: 5px 5px 5px rgba(68,68,68,0.5);
+}
+
+.main-app {
+  margin: 35px;
+  display: flex;
+  justify-content: center;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+form {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.phrase-box {
+  font-size: 18px;
+  padding: 15px;
+  border: 1px solid grey;
+}
+
+textarea {
+  resize: none;
+}
+
+.submit-button {
+  width: 25%;
+  margin: 30px;
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  color: white;
+  font-size: 16px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 800;
+  box-shadow: 5px 5px 5px rgba(68,68,68,0.5);
+}
+
+.submit-div {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+}
+
+.results {
+  width: 33%;
+}
+
+.detected {
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.ok {
+  color: green;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.tensorflow {
+  color: gray;
+  text-decoration: none;
+  width: 25%;
+  font-size: 18px;
+}
+
+.tensordiv {
+  margin: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .App-header {
+    min-height: 5vh;
+    font-size: 15px;
   }
-  to {
-    transform: rotate(360deg);
+  .main-app {
+    flex-direction: column;
+  }
+  form {
+    width: 100%;
+  }
+  .results {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .submit-button {
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .submit-button {
+    width: 33%;
+  }
+  form {
+    width: 50%;
   }
 }
