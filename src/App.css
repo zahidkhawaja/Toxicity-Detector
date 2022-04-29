@@ -61,6 +61,11 @@ textarea {
   box-shadow: 5px 5px 5px rgba(68,68,68,0.5);
 }
 
+.submit-button:hover {
+  opacity: 0.8;
+}
+
+
 .submit-div {
   display: flex;
   justify-content: center;
@@ -91,6 +96,10 @@ textarea {
   text-decoration: none;
   width: 25%;
   font-size: 18px;
+}
+
+.tensorflow:hover {
+  opacity: 0.8;
 }
 
 .tensordiv {

@@ -1,10 +1,12 @@
 import './App.css';
 import { useState } from "react";
-import * as toxicity from "@tensorflow-models/toxicity"
+import * as toxicity from "@tensorflow-models/toxicity";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function App() {
   const [phrase, setPhrase] = useState();
   const [objectData, setObjectData] = useState();
+  const [loading, setLoading] = useState();
 
     // TensorFlow 
   function runTensorflow() {
@@ -18,6 +20,7 @@ function App() {
 
     model.classify(sentences).then(predictions => {
       setObjectData(predictions);
+      setLoading(false);
     })
   })
   }
@@ -26,6 +29,7 @@ function App() {
     e.preventDefault();
     setPhrase(e.target.value);
     runTensorflow();
+    setLoading(true);
 }
 
 
@@ -50,9 +54,12 @@ function App() {
           </div>
         </form>
         <div className = "results">
+          <div className = "circular">
+          {loading ?
+            <CircularProgress color = "secondary" /> : null}
+            </div>
           {objectData ? 
           objectData.map(arr => {
-            console.log(arr)
             if(arr.results[0].match) {
               return (
               <p className = "detected">{arr.label}: detected</p>
